@@ -1,6 +1,6 @@
 <h1 align="center">OLX Scraper - Scraper Bot with Whatsapp Integration</h1>
 <p align="center">
-  <img src="scraper-logo.png" alt="OLX-Scraper-logo" width="120px" height="120px"/>
+  <img src="image/OLX-Scraper.png" alt="OLX-Scraper-logo" width="120px" height="120px"/>
   <br>
   <i>Get the most recent offers of OLX in your Whatsapp, 
     <br>with this Docker-managed Scraper Bot.</i>
@@ -9,13 +9,11 @@
 
 ## Introduction
 
-[![en](https://img.shields.io/badge/lang-en-red.svg?style=flat-square)](https://github.com/nothingnothings/zap-scraper)
-
 This is a Docker-managed Web Crawler which focuses on fetching data from a single page from OLX (most recent offer postings of a given product, as seen in the target.json example).
 
 The languages/technologies used were Python, PHP, Go, RabbitMQ and SQLite.
 
-The script uses Selenium for the Web Scraping, PHP for the management of the data with spreadsheet files, Go for the whatsapp messaging system and SQLite for the management of the local databases where the already archived entries are stored (for avoiding duplicate messages being sent to the whatsapp numbers). The offer postings are sent to the assigned whatsapp numbers in ``targets.json`` and, at the same time, saved to a Google Sheets Spreadsheet file.
+The script uses Selenium for the Web Scraping, PHP for the management of the data with spreadsheet files, Go for the whatsapp messaging system and SQLite for the management of the local database where the already archived entries are stored (for avoiding duplicate messages being sent to the whatsapp numbers). The offer postings are sent to the assigned whatsapp numbers in ``targets.json`` and, at the same time, saved to a Google Sheets Spreadsheet file.
 
 For more information on how to use it, check the instructions below and the example files provided in the project (``.env.example``, ``google-service-account.example``,``target.json`` and ``example_spreadsheet.csv``).
 
