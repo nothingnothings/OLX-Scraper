@@ -65,9 +65,11 @@ For more information on how to use it, check the instructions below and the exam
 4. You need to enable the Google Sheets API in Google Developers Console. For more instructions on how to do this, refer to this tutorial: [medium.com/swlh/how-to-read-or-modify-spreadsheets-from-google-sheets-using-node-js-6f5a672bdd37#ed85](https://medium.com/swlh/how-to-read-or-modify-spreadsheets-from-google-sheets-using-node-js-6f5a672bdd37#ed85). This step will provide you with a Service Account email. Store it somewhere, as you will need it for the next steps.
 5. Don't forget to give editor permission to the Service Account's email that you received on step 4, on the Google Sheets document that you created.
 6. Fill the ``.env`` files with the remaining necessary values. ``MASTER_PHONE_NUMBER``is the number that will be used to send the Whatsapp messages. The same value must be put on the `TARGET_WA_MESSAGE=` key.`SPREED_SHEET_ID=` is the id that you obtained in the 3rd step. `SPREED_SHEET_AUTH` is the name of the json file that you obtained in the 4th step.
-7. Run ``docker compose up -d --build`` to fetch the appropriate images and spin up the needed services/containers.
-8. Once the containers are up, you need to enter the ``olx-scraper-servicewa-1`` service's container and scan the QR code that will appear on the terminal with your Whatsapp. For that, you can either use Docker's logs command, or use Docker Desktop's handy container viewer feature. Either way, once scanned, you will be logged into the ``MASTER_PHONE_NUMBER``'s Whatsapp account, and you won't need to do this step again.
-9. The messages will be sent to the numbers described inside of the target.json file, in ``/crawl-olx/config/target.json``. Ensure that the file follows this format:
+7. (OPTIONAL) - The Crawler is configured to be executed with a CRON Job, every 6 hours, with an initial execution at the start of the script. If you wish to change this schedule, edit the "--- Install cron job ---" snippet in ```/crawl-olx/entrypoint.sh``` with your desired execution intervals.
+8. Fill the ``/crawl-olx/config/target.json`` file with the product pages to be scanned and the Whatsapp numbers you want to target.
+9. Run ``docker compose up -d --build`` to fetch the appropriate images and spin up the needed services/containers.
+10. Once the containers are up, you need to enter the ``olx-scraper-servicewa-1`` service's container and scan the QR code that will appear on the terminal with your Whatsapp. For that, you can either use Docker's logs command, or use Docker Desktop's handy container viewer feature. Either way, once scanned, you will be logged into the ``MASTER_PHONE_NUMBER``'s Whatsapp account, and you won't need to do this step again.
+11. The messages will be sent to the numbers described inside of the target.json file, in ``/crawl-olx/config/target.json``. Ensure that the file follows this format:
 
 ```JSON
 [
