@@ -1,6 +1,6 @@
 <h1 align="center">OLX Scraper - Scraper Bot with Whatsapp Integration</h1>
 <p align="center">
-  <img src="image/OLX-Scraper.png" alt="OLX-Scraper-logo" width="120px" height="120px"/>
+  <img src="image/README/OLX-Scraper.png" alt="OLX-Scraper-logo" width="120px" height="120px"/>
   <br>
   <i>Get the most recent offers of OLX in your Whatsapp, 
     <br>with this Docker-managed Scraper Bot.</i>
