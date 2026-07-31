@@ -1,0 +1,27 @@
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Runtime files:
+.cookie.txt
+.data
+/serviceSendTextMessage/serviceSendTextMessage
+/extras/rabbitMqSendMessage
+/whatsapp-data/*
+crawl-olx/downloaded_files/
+serviceSendTextMessage/servicewa
+
+# Ignore credential files:
+config/*.json
+crawl-olx/config/*.json
+
+# Ignore .env files:
+.env
+config/.env
+crawl-olx/.env
+serviceSendTextMessage/.env
+
+# Keep these jsons:
+!crawl-olx/config/target.json
+!crawl-olx/composer.json

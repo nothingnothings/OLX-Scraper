@@ -1,0 +1,15 @@
+# Shell scripts must always use Unix line endings
+*.sh text eol=lf
+
+# Windows batch files
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Optional: normalize common text files
+*.php text
+*.js text
+*.ts text
+*.json text
+*.yml text
+*.yaml text
+*.env.example text

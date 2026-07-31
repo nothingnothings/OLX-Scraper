@@ -1,0 +1,52 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: rabbitmq
+    volumes:
+      - './.data:/var/lib/rabbitmq'
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    env_file:
+      - config/.env
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest1
+      - RABBITMQ_DEFAULT_PASS=guest1
+    networks:
+      - crawlolx
+  servicewa:
+    hostname: servicewa
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: serviceSendTextMessage/Dockerfile
+    volumes:
+      - './.data/WhatsAppSession:/tmp/WhatsAppSession'
+      - ./whatsapp-data:/code/serviceSendTextMessage
+    env_file:
+      - config/.env
+    networks:
+      - crawlolx
+    tty: true
+    command: /serviceSendTextMessage
+    depends_on:
+      - rabbitmq
+  servicecrawl:
+    hostname: serivicecrawl
+    build:
+      context: .
+      dockerfile: crawl-olx/Dockerfile
+    networks:
+      - crawlolx
+    volumes:
+      - './config:/code/config'
+    env_file:
+      - .env
+    tty: true
+    command: cron -f
+    depends_on:
+      - rabbitmq
+volumes:
+  devshm: null
+networks:
+  crawlolx: null
